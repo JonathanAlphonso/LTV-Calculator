@@ -5,6 +5,11 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600" rel="stylesheet" type="text/css">
         <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
         <link type="text/css" rel="stylesheet" href="style.css">
+
+        <link type="text/css" rel="stylesheet" href="https://mortgagebrokerstore.com/wp-content/themes/mortgagebrokerstore/css/custom-style.css">
+        <link type="text/css" rel="stylesheet" href="https://mortgagebrokerstore.com/wp-content/themes/mortgagebrokerstore/css/theme-elements.css">
+        <link type="text/css" rel="stylesheet" href="https://mortgagebrokerstore.com/wp-content/themes/mortgagebrokerstore/css/theme.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <title>Budgety</title>
     </head>
     <body>
@@ -46,7 +51,7 @@
                     </select>
                     <input type="text" class="add__description" placeholder="Add description">
                     <input type="number" class="add__value" placeholder="Value">
-                    <button class="add__btn"><i class="ion-ios-checkmark-outline"></i></button>
+                    <!-- <button class="add__btn"><i class="ion-ios-checkmark-outline"></i></button> -->
                 </div>
             </div>
             
@@ -118,6 +123,40 @@
             
             
         </div>
+        <div class="accordion">
+        <div class="card card-default">
+            <div class="card-header">
+               <h4 class="card-title m-0">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse0One">
+                  What is a Loan-to-Value Ratio?										
+                  </a>
+               </h4>
+            </div>
+            <div id="collapse0One" class="collapse show" data-parent="#accordion">
+               <div class="card-body">
+                  <p>An LTV ratio is calculated by dividing the amount borrowed by the appraised value of the property, expressed as a percentage. For example, if you buy a home appraised at $100,000 for its appraised value, and make a $10,000 down payment, you will borrow $90,000. This results in an LTV ratio of 90% (i.e., 90,000/100,000). </p>
+                  <p>(Copied from Investopedia, replace with original content)</p>
+                  <p>                    
+                    <input type="number" class="add__debt_value" placeholder="Total of Mortgage Debts">
+                    <input type="number" class="add__property_value" placeholder="Property Value">
+                    
+                </p>
+                <p><button class="btn btn-primary mr-2 add__btn">Calculate Your Loan to Value Ratio</button></p>
+                <p class="LTV-Calc-Results">
+
+                </p>
+                  
+               
+               
+                  
+                </div>
+            </div>
+         </div>
+        </div>
+
+
+
+        
         
         <script src="app.js"></script>
     </body>

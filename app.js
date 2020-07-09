@@ -27,12 +27,16 @@ var budgetController = (function() {
         }
     };
 
+    var mortgageDebt;
+    var propertyValue;
+
     return {
         addItem: function(type, des, val){
             var newItem, ID;
             //ID = last ID + 1
 
             // Create new ID
+            /*
             if(data.allItems[type].length > 0){
                 ID = data.allItems[type][data.allItems[type].length - 1].id +1;
 
@@ -51,7 +55,17 @@ var budgetController = (function() {
             data.allItems[type].push(newItem);
             // return the new element
             return newItem;
+            */
            
+
+        },
+
+        ltvRatio: function(mtgValue, propValue){
+            var ltv = Math.round(mtgValue/propValue*100);
+            console.log(ltv);
+            return ltv;
+            
+
 
         },
 
@@ -77,7 +91,10 @@ var UIController = (function() {
         inputValue: '.add__value',
         inputBtn: '.add__btn',
         incomeContainer: '.income__list',
-        expensesContainer: '.expenses__list'
+        expensesContainer: '.expenses__list',
+        inputDebt: '.add__debt_value',
+        inputPropValue: '.add__property_value',
+        calcResults: '.LTV-Calc-Results'
 
 
     };
@@ -87,9 +104,14 @@ var UIController = (function() {
     return {
         getinput: function(){
             return {
+                /*
                 type: document.querySelector(DOMstrings.inputType).value, //Will be either inc or exp for income and expenses
                 description: document.querySelector(DOMstrings.inputDescription).value,
                 value: document.querySelector(DOMstrings.inputValue).value
+                */
+               mtgValue:document.querySelector(DOMstrings.inputDebt).value,
+               propValue:document.querySelector(DOMstrings.inputPropValue).value
+
             };
 
         },
@@ -108,13 +130,40 @@ var UIController = (function() {
 
 
             //Replace the placeholder text with some acttual data
+            /*
             newHtml = html.replace('%id%', obj.id);
             newHtml = newHtml.replace('%description%', obj.description);
             newHtml = newHtml.replace('%value%', obj.value);
+            */
 
 
             //Insert the HTML into the DOM
-            document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
+            //document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
+
+
+
+
+
+        },
+
+        addLtv: function(ltv){
+            var html, newHtml, element;
+            element = DOMstrings.calcResults;
+            html = `Your Loan-to-Value ratio is ${ltv}%`;
+            
+
+            var el = document.querySelector(element);
+
+            // <a href="/javascript/manipulation/creating-a-dom-element-51/">create a new element</a> that will take the place of "el"
+            var newEl = document.createElement('p');
+            newEl.setAttribute('class', 'LTV-Calc-Results');
+            newEl.innerHTML = `Your Loan-to-Value ratio is ${ltv}%`;
+            if (!ltv){
+                newEl.innerHTML = 'Your numbers are not valid. Please check your inputs and try again.';
+            }
+
+            // replace el with newEL
+            el.parentNode.replaceChild(newEl, el);
 
 
 
@@ -153,9 +202,12 @@ var setupEventListeners = function() {
         input = UICtrl.getinput();
         console.log(input);
         //2. Add the item to the budget controller
-        newItem = budgetCtrl.addItem(input.type,input.description, input.value);
+        //newItem = budgetCtrl.addItem(input.type,input.description, input.value);
+        newItem = budgetCtrl.ltvRatio(input.mtgValue, input.propValue);
+        console.log(newItem);
         //3. Add the item to the UI
-        UICtrl.addListItem(newItem, input.type);
+        //UICtrl.addListItem(newItem, input.type);
+        UICtrl.addLtv(newItem);
         //4. Calculate the budget
         //5. Display the budget on the UI
         
