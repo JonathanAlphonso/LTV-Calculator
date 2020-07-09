@@ -10,6 +10,12 @@
         <link type="text/css" rel="stylesheet" href="https://mortgagebrokerstore.com/wp-content/themes/mortgagebrokerstore/css/theme-elements.css">
         <link type="text/css" rel="stylesheet" href="https://mortgagebrokerstore.com/wp-content/themes/mortgagebrokerstore/css/theme.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        
+        <!--Chart JS CSS CDN Import-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.css">
+  
+        
+        
         <title>Budgety</title>
     </head>
     <body>
@@ -123,11 +129,12 @@
             
             
         </div>
+        <div class="container">
         <div class="accordion">
         <div class="card card-default">
             <div class="card-header">
                <h4 class="card-title m-0">
-                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse0One">
+                  <a class="accordion" >
                   What is a Loan-to-Value Ratio?										
                   </a>
                </h4>
@@ -136,15 +143,40 @@
                <div class="card-body">
                   <p>An LTV ratio is calculated by dividing the amount borrowed by the appraised value of the property, expressed as a percentage. For example, if you buy a home appraised at $100,000 for its appraised value, and make a $10,000 down payment, you will borrow $90,000. This results in an LTV ratio of 90% (i.e., 90,000/100,000). </p>
                   <p>(Copied from Investopedia, replace with original content)</p>
-                  <p>                    
-                    <input type="number" class="add__debt_value" placeholder="Total of Mortgage Debts">
-                    <input type="number" class="add__property_value" placeholder="Property Value">
+                  <p>  
+                        
                     
-                </p>
-                <p><button class="btn btn-primary mr-2 add__btn">Calculate Your Loan to Value Ratio</button></p>
-                <p class="LTV-Calc-Results">
 
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">$</span>
+                        </div>
+                        <input type="number" class="add__debt_value form-control" aria-label="Amount" placeholder="Total of Mortgage Debts">
+                        <div class="input-group-append">
+                          
+                        </div>
+                      </div>
+
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">$</span>
+                        </div>
+                        <input type="number" class="add__property_value form-control" aria-label="Amount" placeholder="Property Value">
+                        <div class="input-group-append">
+                          
+                        </div>
+                      </div>
+
+
+                                       
                 </p>
+                <div style="text-align: center; margin-bottom:10px">
+                    <button class="btn btn-primary mr-2 add__btn">Calculate Your Loan to Value Ratio</button>
+                <p class="LTV-Calc-Results">
+                    <!-- JS script in insert code for results here -->
+                </p>
+            </div>
+                <canvas id="myChart"></canvas>
                   
                
                
@@ -155,8 +187,14 @@
         </div>
 
 
+        
+    </div>
+
+
 
         
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0/dist/chartjs-plugin-datalabels.min.js"></script>
         
         <script src="app.js"></script>
     </body>

@@ -153,12 +153,18 @@ var UIController = (function() {
             
 
             var el = document.querySelector(element);
+            
 
             // <a href="/javascript/manipulation/creating-a-dom-element-51/">create a new element</a> that will take the place of "el"
             var newEl = document.createElement('p');
-            newEl.setAttribute('class', 'LTV-Calc-Results');
-            newEl.innerHTML = `Your Loan-to-Value ratio is ${ltv}%`;
-            if (!ltv){
+            if (ltv){
+            newEl.setAttribute('class', 'LTV-Calc-Results flip-in-hor-bottom');
+            document.querySelector('#myChart').setAttribute('style', 'display:initial;')
+            newEl.innerHTML = `Your Loan-to-Value ratio is <strong> ${ltv}%</strong>`;
+             }   
+            else{
+                newEl.setAttribute('class', 'LTV-Calc-Results');
+                document.querySelector('#myChart').setAttribute('style', 'display:none;')
                 newEl.innerHTML = 'Your numbers are not valid. Please check your inputs and try again.';
             }
 
@@ -174,9 +180,56 @@ var UIController = (function() {
 
         getDOMstrings: function(){
             return DOMstrings;
+        },
+
+        addChart: function(ltv){
+            var data = {
+                labels: [
+                    "Mortgage Debt",
+                    "Home Equity"
+                ],
+                datasets: [
+                    {
+                        data: [ltv, 100-ltv],
+                        backgroundColor: [
+                            "#FF6384",
+                            "#36A2EB"
+                        ],
+                        hoverBackgroundColor: [
+                            "#FF6384",
+                            "#36A2EB",              
+                        ]
+                    }]
+            };
+            
+            var ctx = document.getElementById("myChart");
+            
+            // And for a doughnut chart
+            var myDoughnutChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: data,
+                options: {
+                    rotation: 1 * Math.PI,
+                  circumference: 1 * Math.PI,
+                  tooltips: {
+                    callbacks: {
+                      label: function(tooltipItem, data) {
+                        var dataset = data.datasets[tooltipItem.datasetIndex];
+                        var meta = dataset._meta[Object.keys(dataset._meta)[0]];
+                        var total = meta.total;
+                        var currentValue = dataset.data[tooltipItem.index];
+                        var percentage = parseFloat((currentValue/total*100).toFixed(1));
+                        return percentage + '%';
+                      },
+                      title: function(tooltipItem, data) {
+                        return data.labels[tooltipItem[0].index];
+                      }
+                    }
+                  }
+                }
+            });   
         }
     };
-
 })();
 
 //Global App Controller
@@ -208,6 +261,8 @@ var setupEventListeners = function() {
         //3. Add the item to the UI
         //UICtrl.addListItem(newItem, input.type);
         UICtrl.addLtv(newItem);
+        //Add the cool chart js chart
+        UICtrl.addChart(newItem);
         //4. Calculate the budget
         //5. Display the budget on the UI
         
@@ -226,3 +281,6 @@ var setupEventListeners = function() {
 })(budgetController, UIController);
 
 controller.init();
+
+
+
