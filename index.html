@@ -1,201 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600" rel="stylesheet" type="text/css">
-        <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
-        <link type="text/css" rel="stylesheet" href="style.css">
 
-        <link type="text/css" rel="stylesheet" href="https://mortgagebrokerstore.com/wp-content/themes/mortgagebrokerstore/css/custom-style.css">
-        <link type="text/css" rel="stylesheet" href="https://mortgagebrokerstore.com/wp-content/themes/mortgagebrokerstore/css/theme-elements.css">
-        <link type="text/css" rel="stylesheet" href="https://mortgagebrokerstore.com/wp-content/themes/mortgagebrokerstore/css/theme.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        
-        <!--Chart JS CSS CDN Import-->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.css">
-  
-        
-        
-        <title>Budgety</title>
-    </head>
-    <body>
-        
-        <div class="top">
-            <div class="budget">
-                <div class="budget__title">
-                    Available Budget in <span class="budget__title--month">%Month%</span>:
-                </div>
-                
-                <div class="budget__value">+ 2,345.64</div>
-                
-                <div class="budget__income clearfix">
-                    <div class="budget__income--text">Income</div>
-                    <div class="right">
-                        <div class="budget__income--value">+ 4,300.00</div>
-                        <div class="budget__income--percentage">&nbsp;</div>
-                    </div>
-                </div>
-                
-                <div class="budget__expenses clearfix">
-                    <div class="budget__expenses--text">Expenses</div>
-                    <div class="right clearfix">
-                        <div class="budget__expenses--value">- 1,954.36</div>
-                        <div class="budget__expenses--percentage">45%</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        
-        
-        <div class="bottom">
-            <div class="add">
-                <div class="add__container">
-                    <select class="add__type">
-                        <option value="inc" selected>+</option>
-                        <option value="exp">-</option>
-                    </select>
-                    <input type="text" class="add__description" placeholder="Add description">
-                    <input type="number" class="add__value" placeholder="Value">
-                    <!-- <button class="add__btn"><i class="ion-ios-checkmark-outline"></i></button> -->
-                </div>
-            </div>
-            
-            <div class="container clearfix">
-                <div class="income">
-                    <h2 class="icome__title">Income</h2>
-                    
-                    <div class="income__list">
-                       
-                        <!--
-                        <div class="item clearfix" id="income-0">
-                            <div class="item__description">Salary</div>
-                            <div class="right clearfix">
-                                <div class="item__value">+ 2,100.00</div>
-                                <div class="item__delete">
-                                    <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="item clearfix" id="income-1">
-                            <div class="item__description">Sold car</div>
-                            <div class="right clearfix">
-                                <div class="item__value">+ 1,500.00</div>
-                                <div class="item__delete">
-                                    <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                        -->
-                        
-                    </div>
-                </div>
-                
-                
-                
-                <div class="expenses">
-                    <h2 class="expenses__title">Expenses</h2>
-                    
-                    <div class="expenses__list">
-                       
-                        <!--
-                        <div class="item clearfix" id="expense-0">
-                            <div class="item__description">Apartment rent</div>
-                            <div class="right clearfix">
-                                <div class="item__value">- 900.00</div>
-                                <div class="item__percentage">21%</div>
-                                <div class="item__delete">
-                                    <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
-                                </div>
-                            </div>
-                        </div>
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600" rel="stylesheet" type="text/css">
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link type="text/css" rel="stylesheet" href="style.css">
 
-                        <div class="item clearfix" id="expense-1">
-                            <div class="item__description">Grocery shopping</div>
-                            <div class="right clearfix">
-                                <div class="item__value">- 435.28</div>
-                                <div class="item__percentage">10%</div>
-                                <div class="item__delete">
-                                    <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                        -->
-                        
-                    </div>
-                </div>
-            </div>
-            
-            
-        </div>
-        <div class="container">
+    <link type="text/css" rel="stylesheet"
+        href="https://mortgagebrokerstore.com/wp-content/themes/mortgagebrokerstore/css/custom-style.css">
+    <link type="text/css" rel="stylesheet"
+        href="https://mortgagebrokerstore.com/wp-content/themes/mortgagebrokerstore/css/theme-elements.css">
+    <link type="text/css" rel="stylesheet"
+        href="https://mortgagebrokerstore.com/wp-content/themes/mortgagebrokerstore/css/theme.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!--Chart JS CSS CDN Import-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.css">
+
+
+
+    <title>Loan-to-Value Ratio Calculator</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Loan-to-Value Ratio Calculator</h1>
+        <br/>
         <div class="accordion">
-        <div class="card card-default">
-            <div class="card-header">
-               <h4 class="card-title m-0">
-                  <a class="accordion" >
-                  What is a Loan-to-Value Ratio?										
-                  </a>
-               </h4>
-            </div>
-            <div id="collapse0One" class="collapse show" data-parent="#accordion">
-               <div class="card-body">
-                  <p>An LTV ratio is calculated by dividing the amount borrowed by the appraised value of the property, expressed as a percentage. For example, if you buy a home appraised at $100,000 for its appraised value, and make a $10,000 down payment, you will borrow $90,000. This results in an LTV ratio of 90% (i.e., 90,000/100,000). </p>
-                  <p>(Copied from Investopedia, replace with original content)</p>
-                  <p>  
-                        
-                    
-
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">$</span>
-                        </div>
-                        <input type="number" class="add__debt_value form-control" aria-label="Amount" placeholder="Total of Mortgage Debts">
-                        <div class="input-group-append">
-                          
-                        </div>
-                      </div>
-
-                      <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">$</span>
-                        </div>
-                        <input type="number" class="add__property_value form-control" aria-label="Amount" placeholder="Property Value">
-                        <div class="input-group-append">
-                          
-                        </div>
-                      </div>
+            <div class="card card-default">
+                <div class="card-header">
+                    <h4 class="card-title m-0">
+                        <a class="accordion">
+                            What is a Loan-to-Value Ratio?
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse0One" class="collapse show" data-parent="#accordion">
+                    <div class="card-body">
+                        <p>A Loan-to-Value ratio for a property is equal to all mortgages on a property divided by the appraisal value of the property.
+                            If you own a home worth $1,000,000 and get a new first mortgage for $750,000 then your LTV ratio is 75% (i.e., 750,000/1,000,000) </p>
+                        <p>Most banks and other A-Tier Lenders can loan up to 95% LTV provided that the borrower has a good income and credit score. 
+                            Most non-bank lenders can lend up to 75% LTV but can overlook income and credit issues.</p>
+                        <p>
 
 
-                                       
-                </p>
-                <div style="text-align: center; margin-bottom:10px">
-                    <button class="btn btn-primary mr-2 add__btn">Calculate Your Loan to Value Ratio</button>
-                <p class="LTV-Calc-Results">
-                    <!-- JS script in insert code for results here -->
-                </p>
-            </div>
-                <canvas id="myChart"></canvas>
-                  
-               
-               
-                  
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">$</span>
+                            </div>
+                            <input type="text" class="add__debt_value form-control" aria-label="Amount"
+                                placeholder="Total of Mortgage Debts">
+                            <div class="input-group-append">
+
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">$</span>
+                            </div>
+                            <input type="text" class="add__property_value form-control" aria-label="Amount"
+                                placeholder="Property Value">
+                            <div class="input-group-append">
+
+                            </div>
+                        </div>
+
+
+
+                        </p>
+                        <div style="text-align: center; margin-bottom:10px">
+                            <button class="btn btn-primary mr-2 add__btn">Calculate Your Loan to Value Ratio</button>
+                            <p class="LTV-Calc-Results">
+                                <!-- JS script in insert code for results here -->
+                            </p>
+                        </div>
+                        <canvas id="myChart" style="display: none;"></canvas>
+
+
+
+
+                    </div>
                 </div>
             </div>
-         </div>
         </div>
 
 
-        
+
     </div>
 
 
 
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0/dist/chartjs-plugin-datalabels.min.js"></script>
-        
-        <script src="app.js"></script>
-    </body>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
+    <script src="app.js"></script>
+</body>
+
 </html>
