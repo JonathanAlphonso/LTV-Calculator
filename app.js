@@ -24,9 +24,9 @@ var UIController = (function () {
         getinput: function () {
             return {
                 //Convert from string with commas to number
-                mtgValue: (parseFloat(document.querySelector(DOMstrings.inputDebt).value.replace(/,/g, ''))  || 0),
+                mtgValue: (parseFloat(document.querySelector(DOMstrings.inputDebt).value.replace(/(?!\.)\D/g, ''))  || 0),
                 
-                propValue: (parseFloat(document.querySelector(DOMstrings.inputPropValue).value.replace(/,/g, '')) || 0)
+                propValue: (parseFloat(document.querySelector(DOMstrings.inputPropValue).value.replace(/(?!\.)\D/g, '')) || 0)
             };
             
         },
@@ -115,7 +115,7 @@ var controller = (function (budgetCtrl, UICtrl) {
         //Format number when input field loses focus, adapted from SO code, so nice and DRY!
         [document.querySelector(DOM.inputDebt), document.querySelector(DOM.inputPropValue)].forEach(item => {
             item.addEventListener('focusout', event => {
-              item.value = parseInt(item.value.replace(/\D/g,''),10).toLocaleString();
+            item.value = parseFloat(item.value.replace(/(?!\.)\D/g,'')).toLocaleString();
               if (isNaN(parseInt(item.value), 10)) {item.value="";}
             })
           })
