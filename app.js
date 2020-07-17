@@ -13,6 +13,7 @@ var budgetController = (function () {
 
 // UI Controller
 var UIController = (function () {
+    //The main input fields are
     var DOMstrings = {
         inputBtn: '.add__btn',
         inputDebt: '.add__debt_value',
