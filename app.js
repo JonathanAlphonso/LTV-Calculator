@@ -24,8 +24,7 @@ var UIController = (function () {
         getinput: function () {
             return {
                 //Convert from string with commas to number
-                mtgValue: (parseFloat(document.querySelector(DOMstrings.inputDebt).value.replace(/(?!\.)\D/g, ''))  || 0),
-                
+                mtgValue: (parseFloat(document.querySelector(DOMstrings.inputDebt).value.replace(/(?!\.)\D/g, ''))  || 0),             
                 propValue: (parseFloat(document.querySelector(DOMstrings.inputPropValue).value.replace(/(?!\.)\D/g, '')) || 0)
             };
             
